@@ -2,7 +2,7 @@
 
 <div class="message" data-bind="text: fruit"></div>
 <input type="text" data-bind="value: fruit, valueUpdate:'afterkeydown'">
-<input type="button" value="Add fruit" data-bind="click: addFruit">
+<input type="submit" value="Add fruit" data-bind="click: addFruit">
 
 <ul data-bind="foreach: fruitsArr">
     <li data-bind="text: $data"></li>
@@ -14,10 +14,14 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
     <script>
-        viewModel = {
+        var viewModel = {
             fruit: ko.observable(),
             fruitsArr: ko.observableArray(),
-            addFruit: function() { this.fruitsArr.push(this.fruit) }
+            addFruit: function() { 
+                // parenthesis are really important to get the value of object property, otherwise you refere to handler
+                this.fruitsArr.push(this.fruit()); 
+                console.log(this.fruitsArr()) 
+            }
         }
         
         viewModel.fruitsArr.push('banana');
