@@ -1,0 +1,19 @@
+{
+  "name": "knockout-practice",
+  "version": "1.0.0",
+  "description": "Knockout crashcourse",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify app.js -o bundle.js"
+  },
+  "keywords": [
+    "knockout"
+  ],
+  "author": "DC",
+  "license": "ISC",
+  "dependencies": {
+    "knockout": "^3.4.2",
+    "unique": "0.0.1"
+  }
+}
