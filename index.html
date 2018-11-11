@@ -1,6 +1,30 @@
 <h1>Knockout.js practice</h1>
 
-<div class="message"></div>
+<div class="message" data-bind="text: fruit"></div>
+<input type="text" data-bind="value: fruit, valueUpdate:'afterkeydown'">
+<input type="button" value="Add fruit" data-bind="click: addFruit">
+
+<ul data-bind="foreach: fruitsArr">
+    <li data-bind="text: $data"></li>
+</ul>
 
 
-<script src="bundle.js"></script>
+<!-- <script src="bundle.js"></script> -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <script>
+        viewModel = {
+            fruit: ko.observable(),
+            fruitsArr: ko.observableArray(),
+            addFruit: function() { this.fruitsArr.push(this.fruit) }
+        }
+        
+        viewModel.fruitsArr.push('banana');
+        viewModel.fruitsArr.push('kiwi');
+        viewModel.fruitsArr.push('kumkwat');
+
+        
+        viewModel.fruit('Apple');
+        ko.applyBindings(viewModel);
+    </script>

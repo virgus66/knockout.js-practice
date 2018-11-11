@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify app.js -o bundle.js"
+    "build": "webpack ./src/app.js --output ./bundle.js --mode development"
   },
   "keywords": [
     "knockout"
@@ -13,7 +13,9 @@
   "author": "DC",
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.3.1",
     "knockout": "^3.4.2",
     "unique": "0.0.1"
-  }
+  },
+  "devDependencies": {}
 }
